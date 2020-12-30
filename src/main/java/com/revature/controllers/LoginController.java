@@ -18,8 +18,7 @@ public class LoginController {
 	static UserDAO dao = new UserDAOImpl();
 	
 	public static void loginPage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("loginPage method");
-		RequestDispatcher redis = req.getRequestDispatcher("index.html");
+		RequestDispatcher redis = req.getRequestDispatcher("/index.html");
 		redis.forward(req, resp);
 	}	
 	public static void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,26 +44,28 @@ public class LoginController {
 				resp.addCookie(uc);
 				resp.addCookie(pc);
 				
-				RequestDispatcher redis = req.getRequestDispatcher("success.html");
+				RequestDispatcher redis = req.getRequestDispatcher("/success.html");
 				redis.forward(req, resp);
 			} else {
 				System.out.println("login failed");
-				RequestDispatcher redis = req.getRequestDispatcher("error.html");
+				RequestDispatcher redis = req.getRequestDispatcher("/error.html");
 				redis.forward(req, resp);
 			}
 		} else {
 			System.out.println("login failed");
-			RequestDispatcher redis = req.getRequestDispatcher("error.html");
+			RequestDispatcher redis = req.getRequestDispatcher("/error.html");
 			redis.forward(req, resp);
 		}
 		
 	}
 	
-	public static void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public static void logout(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getSession().invalidate();
+		System.out.println("logging out");
+		req.getSession().setAttribute("user", null);
+		req.getSession().invalidate();
 		
-		response.sendRedirect("http://localhost:8080/CafeApi/index.html");
+		resp.sendRedirect("login");
 	}
 
 }

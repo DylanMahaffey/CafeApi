@@ -17,7 +17,7 @@ import com.revature.dao.UserDAO;
 import com.revature.dao.UserDAOImpl;
 import com.revature.models.User;
 
-//@WebServlet("/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	
 	static UserDAO dao = new UserDAOImpl();

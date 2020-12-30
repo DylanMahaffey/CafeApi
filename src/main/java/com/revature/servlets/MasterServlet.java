@@ -13,7 +13,7 @@ import com.revature.controllers.RequestHelper;
 /**
  * Servlet implementation class MasterServlet
  */
-@WebServlet("/*")
+@WebServlet("/api/*")
 public class MasterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

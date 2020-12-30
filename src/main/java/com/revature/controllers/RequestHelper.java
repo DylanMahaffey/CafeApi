@@ -14,7 +14,7 @@ public class RequestHelper {
 			String endpoint = req.getRequestURI();
 			
 			switch(endpoint) {
-				case "/CafeApi/login" :
+				case "/CafeApi/api/login" :
 					switch(req.getMethod()) {
 						case "GET":
 							LoginController.loginPage(req, resp);
@@ -27,19 +27,19 @@ public class RequestHelper {
 					
 					}
 					break;
-				case "/CafeApi/logout" :
+				case "/CafeApi/api/logout" :
 					switch(req.getMethod()) {
-					case "POST":
+					case "GET":
 						LoginController.logout(req, resp);
 						break;
 					default:
 						resp.setStatus(405);
 					}
 					break;
-				case "/CafeApi/SuperSecret" :
+				case "/CafeApi/api/SuperSecret" :
 					switch(req.getMethod()) {
-					case "POST":
-						LoginController.logout(req, resp);
+					case "GET":
+						SuperSecretController.superSecret(req, resp);
 						break;
 					default:
 						resp.setStatus(405);

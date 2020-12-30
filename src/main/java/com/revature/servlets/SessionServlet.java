@@ -14,7 +14,7 @@ import com.revature.models.User;
 /**
  * Servlet implementation class SessionServlet
  */
-//@WebServlet("/SessionServlet")
+@WebServlet("/SessionServlet")
 public class SessionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
